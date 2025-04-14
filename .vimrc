@@ -34,6 +34,7 @@ set showcmd
 
 nmap j gj
 nmap k gk
+nmap Q :q<ENTER>
 cmap W w
 cmap Q q<bar>q
 cmap "w w
@@ -142,22 +143,3 @@ func! WordProcessorMode()
 endfu
 com! PMODE call WordProcessorMode()
 
-" added by apt-vim:
-execute pathogen#infect()
-call pathogen#helptags()
-
-
-" nerdtree: 
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == 'primary') | q | endif
-" autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType")) | q | endif
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd BufEnter * NERDTreeMirror
-autocmd BufWinEnter * NERDTreeMirror
-" let NERDTreeQuitOnClose = 1
-let NERDTreeAutoDeleteBuffer = 1
-" let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-" toggle with f1:
-nmap <silent> <F3> :NERDTreeToggle<CR>
